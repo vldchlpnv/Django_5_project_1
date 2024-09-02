@@ -1,10 +1,9 @@
-from django.shortcuts import render, get_object_or_404
 from .models import Post
-
+from django.shortcuts import render, get_object_or_404
 def post_list(request):    # подтянем модель
 
-    post = Post.publish.all()
-    return render(request, 'blog/post/list.html', {'post':post})
+    posts = Post.published.all()
+    return render(request, 'blog/post/list.html', {'posts':posts})
 
 def post_detail(request, id):
 
